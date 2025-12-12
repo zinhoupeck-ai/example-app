@@ -11,6 +11,7 @@
                 </div>
 
                 <!-- Navigation Links -->
+
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
@@ -20,6 +21,11 @@
 
             <div class="flex">
             <!-- Create Post button -->
+             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('filament.admin.auth.login')" :active="request()->routeIs('filament.admin.auth.login')">
+                        {{ __('Admin') }}
+                    </x-nav-link>
+                </div>
                 <a href="{{ route('post.create') }}" class="flex items-center">
             <x-primary-button>
                 Create Post
