@@ -6,7 +6,7 @@
                 <h1 class="text-5x1 mb-4">{{ $post->title }}</h1>
             </div>
             <div>
-                <h3>{{ $post->user->name }}</h3>
+                <a href="{{ route('profile.show',$post->user) }}">{{ $post->user->name }}</a>
                 <div class="flex gap-2 text-gray-500">
                     <span>
                         {{ $post->created_at->format('M d,Y') }}

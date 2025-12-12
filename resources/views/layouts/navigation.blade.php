@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-
+    @auth
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
@@ -92,6 +92,8 @@
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
+                
+
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -105,4 +107,5 @@
             </div>
         </div>
     </div>
+    @endauth
 </nav>
