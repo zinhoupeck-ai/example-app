@@ -19,12 +19,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            'Technology',
-            'Health',
-            'Science',
-            'Sports',
-            'Politics',
-            'Entertainment',
+            'R&B',
+            'Jazz',
+            'Hip',
+            'Pop',
+            'Classic',
+            'Blue',
         ];
 
         foreach ($categories as $category) {
