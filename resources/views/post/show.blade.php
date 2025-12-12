@@ -45,6 +45,7 @@
                 </form>
             </div>
             @endif
+             <livewire:post-comments :key="$post->id" :$post/>
         </div>
     </div>
 </x-app-layout>

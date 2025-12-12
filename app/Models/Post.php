@@ -50,23 +50,9 @@ class Post extends Model
     }
 
     
-    public function readTime($wordsPerMinute = 100)
+    public function comments()
     {
-        $wordCount = str_word_count(strip_tags($this->content));
-        $minutes = ceil($wordCount / $wordsPerMinute);
-
-        return max(1, $minutes);
+        return $this->hasMany(Comment::class);
     }
     
-    public function imageUrl($conversionName = '')
-    {
-        $media = $this->getFirstMedia();
-        if (!$media) {
-            return null;
-        }
-        if ($media->hasGeneratedConversion($conversionName)) {
-            return $media->getUrl($conversionName);
-        }
-        return $media->getUrl();
-    }
 }
