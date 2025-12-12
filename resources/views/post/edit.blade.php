@@ -3,10 +3,11 @@
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <h1 class="text-3xl mb-4">Update post</h1>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-8">
-               <form action="{{ route('post.store') }}"
+               <form action="{{ route('post.update', $post->id) }}"
                enctype="multipart/form-data" method="post">
 
                @csrf
+               @method('put')
 
                <!-- Image -->
                     <div>

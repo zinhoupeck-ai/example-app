@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostCreateRequest;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
@@ -82,9 +83,16 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PostCreateRequest $request, Post $post)
     {
-        //
+        if ($post->user_id != Auth::user()->id) {
+            abort(403);
+        }
+        $data = $request->validated();
+
+        $post->update($data);
+
+        return redirect()->route('dashboard');
     }
 
     /**
