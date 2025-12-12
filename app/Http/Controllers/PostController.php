@@ -67,9 +67,16 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Post $post)
     {
-        //
+        if ($post->user_id != Auth::user()->id) {
+            abort(403);
+        }
+        $categories = Category::get();
+        return view('post.edit',[
+            'post' => $post,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -83,9 +90,14 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Post $post)
     {
-        //
+        if ($post->user_id != Auth::user()->id) {
+            abort(403);
+        }
+        $post->delete();
+        return redirect()->route('dashboard');
+        
     }
     
 }
